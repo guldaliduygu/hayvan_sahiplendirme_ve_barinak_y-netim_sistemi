@@ -14,8 +14,14 @@ import pandas as pd
 # (database.py dosyanızın yanınızda olduğundan emin olun)
 import database as db
 
-# --- API AYARLARI ---
-API_KEY = "AIzaSyDGF9_YQI-dd5F-qQk5vZQPl3gBESYqf7o"
+import os
+from dotenv import load_dotenv
+
+# .env dosyasındaki verileri yükle
+load_dotenv()
+
+# Anahtarı oradan çek
+API_KEY = os.getenv("GEMINI_API_KEY")
 
 def get_user_donations(username):
     # Veritabanındaki tüm bağışları çek
